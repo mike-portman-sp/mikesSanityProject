@@ -6,11 +6,11 @@ type RowProps = {
   columns?: any[];
   columnLayout?: string;
   title?: string; // Keep this
-  columnBackground?: string; // ← Add this
+  backgroundColor?: string; // ← Add this
   row?: any; // Add this for the entire row data
 };
 
-export default function Row({ columns, columnLayout, title, columnBackground  }: RowProps) {
+export default function Row({ columns, columnLayout, title, backgroundColor  }: RowProps) {
   // Changed rowQuery to title
   const gridColsMap: Record<string, string> = {
     "1": "md:grid-cols-1",
@@ -30,7 +30,7 @@ export default function Row({ columns, columnLayout, title, columnBackground  }:
   const gridClass = gridColsMap[columnLayout || "1"] || "md:grid-cols-2";
 
   return (
-    <section id={title?.toLowerCase()} className={`row pb-lg mx-auto ${columnBackground}`} >
+    <section id={title?.toLowerCase()} className={`row pb-lg mx-auto ${backgroundColor}`} >
       <div
         className={`grid ${gridClass} gap-8 md:gap-14 container-custom mx-auto px-6`}
       >

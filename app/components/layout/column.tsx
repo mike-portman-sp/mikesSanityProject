@@ -35,7 +35,7 @@ export default function Column({ column }: ColumnProps) {
 
   return (
     <div
-      className={`py-8 container max-w-6xl mx-auto column flex flex-col ${shadowCard} ${customClass} ${column.colHorizontalAlign || ""} ${column.colVerticalAlign || ""} ${column.colTextAlign || ""}`}
+      className={`py-8 mx-auto column flex flex-col ${shadowCard} ${customClass} ${column.colHorizontalAlign || ""} ${column.colVerticalAlign || ""} ${column.colTextAlign || ""}`}
     >
       {column.columnContent.map((block, index) => {
         // console.log(`5. Block ${index}:`, block);

@@ -3,6 +3,7 @@ import PageBuilder from "../pagebuilder";
 import MainMenu from "../components/layout/mainMenu";
 import { pageQuery } from "../queries/pageQuery";
 import BlogList from "../components/blog/blogList";
+import Footer from "../components/layout/footer";
 
 // In app/blog/page.tsx
 export default async function BlogPage() {
@@ -17,6 +18,7 @@ export default async function BlogPage() {
       <MainMenu mainMenu={data.mainMenu} />
       <PageBuilder blocks={data.pageBuilder} />
       <BlogList />
+      <Footer footer={data.footer} mainMenu={data.mainMenu} />
     </>
   );
 }

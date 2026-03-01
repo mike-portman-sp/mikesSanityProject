@@ -30,20 +30,21 @@ export default defineType({
     defineField({
       name: 'columns',
       title: 'Columns',
-      type: 'string',
+      type: 'number',
       options: {
         list: [
-          {title: '1 Column', value: '1'},
-          {title: '2 Columns', value: '2'},
-          {title: '3 Columns', value: '3'},
-          {title: '4 Columns', value: '4'},
-          {title: '5 Columns', value: '5'},
-          {title: '6 Columns', value: '6'},
-          {title: '7 Columns', value: '7'},
-          {title: '8 Columns', value: '8'},
+          {title: '1 Column', value: 1},
+          {title: '2 Columns', value: 2},
+          {title: '3 Columns', value: 3},
+          {title: '4 Columns', value: 4},
+          {title: '5 Columns', value: 5},
+          {title: '6 Columns', value: 6},
+          {title: '7 Columns', value: 7},
+          {title: '8 Columns', value: 8},
         ],
         layout: 'dropdown',
       },
+      initialValue: 1,
       group: 'basic',
     }),
     defineField({
@@ -58,9 +59,7 @@ export default defineType({
       title: 'Background Color',
       type: 'string',
       options: {
-        list: [
-          {title: 'Shadow', value: 'bg-shadow'},
-        ],
+        list: [{title: 'Shadow', value: 'bg-shadow'}],
       },
       group: 'settings',
     }),

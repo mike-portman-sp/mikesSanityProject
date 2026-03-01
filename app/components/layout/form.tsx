@@ -32,7 +32,7 @@ export default function Form({ form }) {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="w-full py-24 relative overflow-hidden">
       {/* Decorative */}
       {/* <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-secondary via-primary to-accent" />
       <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/10 blob" />

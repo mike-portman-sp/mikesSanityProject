@@ -5,16 +5,14 @@ import { pageQuery } from "../queries/pageQuery";
 import { getSiteSettings } from "../queries/getSiteSettings";
 import { generateMetadata as genMeta } from "../queries/generateMetaData";
 import { Metadata } from "next";
-
+import Footer from "../components/layout/footer";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-
   const { slug } = await params;
-
 
   const [data, settings] = await Promise.all([
     client.fetch(pageQuery, { slug }),
@@ -42,7 +40,6 @@ export default async function Page({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-
   const { slug } = await params;
   const data = await client.fetch(pageQuery, { slug });
 
@@ -54,6 +51,7 @@ export default async function Page({
     <>
       <MainMenu mainMenu={data.mainMenu} />
       <PageBuilder blocks={data.pageBuilder} />
+      <Footer footer={data.footer} mainMenu={data.mainMenu} />
     </>
   );
 }
