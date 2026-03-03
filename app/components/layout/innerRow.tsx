@@ -1,14 +1,14 @@
 import Column from "./column";
 import Card from "./card";
 import CardBG from "./cardBG";
+
 type RowProps = {
   columns?: any[];
   columnLayout?: string;
-  title?: string; // Keep this
+  title?: string;
 };
 
 export default function InnerRow({ columns, columnLayout, title }: RowProps) {
-  // Changed rowQuery to title
   const gridColsMap: Record<string, string> = {
     "1": "md:grid-cols-1",
     "2": "md:grid-cols-2",
@@ -24,7 +24,17 @@ export default function InnerRow({ columns, columnLayout, title }: RowProps) {
     "12": "md:grid-cols-12",
   };
 
+  const colCount = parseInt(columnLayout || "1");
   const gridClass = gridColsMap[columnLayout || "1"] || "md:grid-cols-2";
+  const isOrphan = !!columns?.length && columns.length % colCount === 1;
+
+  const renderItem = (item: any) => {
+    if (item._type === "card") {
+      if (item.cardStyle === "card-image-bg") return <CardBG card={item} />;
+      return <Card card={item} />;
+    }
+    return <Column column={item} />;
+  };
 
   return (
     <section
@@ -34,18 +44,19 @@ export default function InnerRow({ columns, columnLayout, title }: RowProps) {
       <div
         className={`grid ${gridClass} gap-8 md:gap-14 container-custom mx-auto`}
       >
-        {columns?.map((item) => {
-          // Check if it's a card type first
+        {columns?.map((item, index) => {
+          if (isOrphan && index === columns.length - 1) {
+            return (
+              <div key={item._key} className="col-span-full flex justify-center">
+                <div style={{ width: `${(100 / colCount).toFixed(3)}%` }}>
+                  {renderItem(item)}
+                </div>
+              </div>
+            );
+          }
+
           if (item._type === "card") {
-            // Check for image background card
-            if (item.cardStyle === "card-image-bg") {
-              return <CardBG key={item._key} card={item} />;
-            }
-            // Check for gradient cards
-            if (item.cardStyle?.startsWith("bg-gradient-")) {
-              return <Card key={item._key} card={item} />;
-            }
-            // Default card rendering
+            if (item.cardStyle === "card-image-bg") return <CardBG key={item._key} card={item} />;
             return <Card key={item._key} card={item} />;
           }
 

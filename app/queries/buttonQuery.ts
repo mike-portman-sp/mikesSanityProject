@@ -1,17 +1,12 @@
-export const buttonQuery = `
-         _key,
-          _type,
-          title,
-          style,
-          link{
-            _type,
-            linkType,
-            external,
-              openInNewTab,
-            internal->{ slug{ current } },
-            file{
-              asset->
-            }
-          },
+import { linkProjection } from "./linkProjection";
 
+export const buttonQuery = `
+  _key,
+  _type,
+  title,
+  style,
+  targetBlank,
+  link{
+    ${linkProjection}
+  }
 `;

@@ -1,10 +1,7 @@
-import { PortableText } from "@portabletext/react";
-import Blobs from "../fields/blobs";
-import Button from "../fields/button";
-import AdvancedText from "../fields/advancedText"; // Import this
+import AdvancedText from "../fields/advancedText";
 import "../../../styles/sass/components/hero.scss";
 
-export default function MainHero({ hero }) {
+export default function SubPageHero({ hero }) {
   return (
     <section id="subPageHero" className="relative overflow-hidden flex py-24">
       <div className="container mx-auto px-6 relative z-10">
@@ -19,7 +16,7 @@ export default function MainHero({ hero }) {
           </div>
 
           <p
-            className="text-2xl md:text-3xl text-muted-foreground mb-6 font-handwritten "
+            className="text-2xl md:text-3xl text-muted-foreground mb-6 font-handwritten"
             style={{ animationDelay: "0.3s" }}
           >
             {hero.subheading}

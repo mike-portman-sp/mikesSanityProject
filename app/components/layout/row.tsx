@@ -2,16 +2,15 @@ import Column from "./column";
 import Card from "./card";
 import CardBG from "./cardBG";
 import InnerRow from "./innerRow";
+
 type RowProps = {
   columns?: any[];
   columnLayout?: string;
-  title?: string; // Keep this
-  backgroundColor?: string; // ← Add this
-  row?: any; // Add this for the entire row data
+  title?: string;
+  backgroundColor?: string;
 };
 
-export default function Row({ columns, columnLayout, title, backgroundColor  }: RowProps) {
-  // Changed rowQuery to title
+export default function Row({ columns, columnLayout, title, backgroundColor }: RowProps) {
   const gridColsMap: Record<string, string> = {
     "1": "md:grid-cols-1",
     "2": "md:grid-cols-2",
@@ -30,26 +29,14 @@ export default function Row({ columns, columnLayout, title, backgroundColor  }: 
   const gridClass = gridColsMap[columnLayout || "1"] || "md:grid-cols-2";
 
   return (
-    <section id={title?.toLowerCase()} className={`row pb-lg mx-auto ${backgroundColor}`} >
-      <div
-        className={`grid ${gridClass} gap-8 md:gap-14 container-custom mx-auto px-6`}
-      >
+    <section id={title?.toLowerCase()} className={`row pb-lg mx-auto ${backgroundColor}`}>
+      <div className={`grid ${gridClass} gap-8 md:gap-14 container-custom mx-auto px-6`}>
         {columns?.map((item) => {
-          // Check if it's a card type first
           if (item._type === "card") {
-            // Check for image background card
-            if (item.cardStyle === "card-image-bg") {
-              return <CardBG key={item._key} card={item} />;
-            }
-            // Check for gradient cards
-            if (item.cardStyle?.startsWith("bg-gradient-")) {
-              return <Card key={item._key} card={item} />;
-            }
-            // Default card rendering
+            if (item.cardStyle === "card-image-bg") return <CardBG key={item._key} card={item} />;
             return <Card key={item._key} card={item} />;
           }
 
-          // Handle innerRow
           if (item._type === "innerRow") {
             return (
               <InnerRow
@@ -60,6 +47,7 @@ export default function Row({ columns, columnLayout, title, backgroundColor  }: 
               />
             );
           }
+
           return <Column key={item._key} column={item} />;
         })}
       </div>

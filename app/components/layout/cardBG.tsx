@@ -1,6 +1,4 @@
-// cardbg.tsx
 import { getLinkUrl } from "../utils/linkHelpers";
-import imageField from "../fields/imageField";
 import { urlFor } from "../fields/sanityImageUrl";
 
 type CardBGProps = {

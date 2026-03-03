@@ -6,7 +6,6 @@ type ImageProps = {
 
 export default function ImageField({ imageField }: ImageProps) {
   if (!imageField) return null;
-  // console.log("ImageField data:", imageField);
 
   const styles = imageField.maxHeight 
  ? { maxHeight: `${imageField.maxHeight}px` } 

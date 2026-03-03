@@ -1,3 +1,5 @@
+import { linkProjection } from "./linkProjection";
+
 export const footerQuery = `
   title,
   advancedText{
@@ -8,16 +10,7 @@ export const footerQuery = `
     _type,
     title,
     link{
-      _type,
-      linkType,
-      external,
-      openInNewTab,
-      internal->{ slug{ current } },
-      file{
-        asset->{
-          url
-        }
-      }
+      ${linkProjection}
     }
   }
 `;

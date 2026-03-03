@@ -1,20 +1,11 @@
-// components/layout/menuLinks.tsx
+import { getLinkUrl } from "./linkHelpers";
+import type { LinkField } from "../../types/sanity";
+
 type MenuLink = {
   _key: string;
   _type: string;
   title: string;
-  link?: {
-    _type: string;
-    linkType: "internal" | "external" | "file";
-    external?: string;
-    openInNewTab?: boolean;
-    internal?: {
-      slug?: {
-        current: string;
-      };
-    };
-    file?: any;
-  };
+  link?: LinkField;
 };
 
 type MenuLinksProps = {
@@ -24,32 +15,18 @@ type MenuLinksProps = {
   onLinkClick?: () => void;
 };
 
-export default function MenuLinks({ 
-  items, 
-  className = "", 
+export default function MenuLinks({
+  items,
+  className = "",
   linkClassName = "",
-  onLinkClick 
+  onLinkClick,
 }: MenuLinksProps) {
-  const getHref = (item: MenuLink) => {
-    if (!item.link) return "#";
-
-    if (item.link.linkType === "external") {
-      return item.link.external || "#";
-    }
-
-    if (item.link.linkType === "internal") {
-      return `/${item.link.internal?.slug?.current || ""}`;
-    }
-
-    return "#";
-  };
-
   return (
     <nav className={className}>
       {items.map((item) => (
         <a
           key={item._key}
-          href={getHref(item)}
+          href={getLinkUrl(item.link)}
           className={linkClassName}
           onClick={onLinkClick}
         >

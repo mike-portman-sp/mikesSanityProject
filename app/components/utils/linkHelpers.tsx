@@ -1,5 +1,6 @@
-// utils/linkHelpers.ts
-export const getLinkUrl = (link: any) => {
+import type { LinkField } from "../../types/sanity";
+
+export const getLinkUrl = (link?: LinkField) => {
   if (!link) return "#";
 
   switch (link.linkType) {
@@ -30,7 +31,7 @@ export const getLinkUrl = (link: any) => {
   }
 };
 
-export const getLinkTarget = (link: any) => {
+export const getLinkTarget = (link?: LinkField) => {
   if (!link) return undefined;
   
   // Open in new tab if it's an external link and openInNewTab is true
@@ -41,7 +42,7 @@ export const getLinkTarget = (link: any) => {
   return undefined;
 };
 
-export const getLinkRel = (link: any) => {
+export const getLinkRel = (link?: LinkField) => {
   if (!link) return undefined;
   
   // Add security attributes for external links opening in new tab

@@ -1,4 +1,4 @@
-// heroQuery.ts
+import { linkProjection } from "./linkProjection";
 
 export const heroProjection = `
   heading,
@@ -10,18 +10,7 @@ export const heroProjection = `
       markDefs[]{
         ...,
         _type == "link" => {
-          linkType,
-          external,
-          internal->{
-            slug{
-              current
-            }
-          },
-          file{
-            asset->{
-              url
-            }
-          }
+          ${linkProjection}
         }
       }
     }
@@ -31,20 +20,10 @@ export const heroProjection = `
     _key,
     _type,
     title,
-    link{
-      _type,
-      linkType,
-      external,
-      internal->{
-        slug{
-          current
-        }
-      },
-      file{
-        asset->
-      }
-    },
     style,
-    targetBlank
+    targetBlank,
+    link{
+      ${linkProjection}
+    }
   }
 `;

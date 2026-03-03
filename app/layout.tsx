@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-// import "../styles/styles.scss"
 
 import { getSiteSettings } from "./queries/getSiteSettings";
 import { generateMetadata as genMeta } from "./queries/generateMetaData";

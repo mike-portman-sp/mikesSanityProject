@@ -29,7 +29,7 @@ export function generateMetadata({
   defaultSeo,
   siteName = "Your Site",
   path = "",
-  siteUrl = "https://mikeportman.com",
+  siteUrl = "",
 }: GenerateMetadataProps): Metadata {
   const metaTitle =
     seo?.metaTitle || title || defaultSeo?.metaTitle || siteName;
