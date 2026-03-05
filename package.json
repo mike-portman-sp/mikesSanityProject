@@ -2,6 +2,7 @@
   "name": "sanity-headless",
   "version": "0.1.0",
   "private": true,
+   "packageManager": "pnpm@10.28.0",
   "scripts": {
     "dev": "concurrently \"npm run dev:next\" \"npm run dev:studio\"",
     "dev:next": "next dev",
