@@ -3,7 +3,7 @@ import Blobs from "../fields/blobs";
 import Button from "../fields/button";
 import "../../../styles/sass/components/hero.scss";
 
-export default function MainHero({ hero }) {
+export default function MainHero({ hero }: { hero: any }) {
   return (
     <section id="mainHero" className="min-h-screen relative overflow-hidden flex items-center">
       {hero.blobs && <Blobs />}
@@ -30,7 +30,7 @@ export default function MainHero({ hero }) {
             className="flex flex-wrap justify-center gap-4 animate-fade-up"
             style={{ animationDelay: "0.5s" }}
           >
-            {hero.buttons?.map((btn) => (
+            {hero.buttons?.map((btn: any) => (
               <Button key={btn._key} button={btn} />
             ))}
           </div>

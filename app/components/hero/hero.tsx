@@ -1,7 +1,7 @@
 import MainHero from "./mainHero"; 
 import SubPageHero from "./subPageHero";
 
-export default function Hero({ hero }) {
+export default function Hero({ hero }: { hero: any }) {
 
 
   if (!hero) return null;

@@ -1,7 +1,7 @@
 import AdvancedText from "../fields/advancedText";
 import "../../../styles/sass/components/hero.scss";
 
-export default function SubPageHero({ hero }) {
+export default function SubPageHero({ hero }: { hero: any }) {
   return (
     <section id="subPageHero" className="relative overflow-hidden flex py-24">
       <div className="container mx-auto px-6 relative z-10">

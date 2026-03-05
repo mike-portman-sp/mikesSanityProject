@@ -17,7 +17,7 @@ const customComponents = {
     right: ({ children }: any) => (
       <span className="block text-right">{children}</span>
     ),
-    link: ({ value, children }) => {
+    link: ({ value, children }: any) => {
       const { linkType, internal, external, file } = value;
 
       let href = "#";

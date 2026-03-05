@@ -12,7 +12,7 @@ export default defineType({
       description: 'Toggle animated blob decorations in the background',
       initialValue: false,
       options: {
-        layout: 'radio',
+        layout: 'switch',
       },
     }),
   ],

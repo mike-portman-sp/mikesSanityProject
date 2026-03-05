@@ -27,7 +27,7 @@ type FooterProps = {
 
 const customComponents = {
   block: {
-    normal: ({ children }) => (
+    normal: ({ children }: any) => (
       <p className="text-xs text-muted-foreground mt-2 font-handwritten">{children}</p>
     ),
   }

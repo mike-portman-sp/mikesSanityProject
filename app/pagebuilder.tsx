@@ -1,8 +1,7 @@
 import Row from "./components/layout/row";
 import Hero from "./components/hero/hero";
-import Card from "./components/layout/card";
 import BlogList from "./components/blog/blogList";
-export default function PageBuilder({ blocks }) {
+export default function PageBuilder({ blocks }: { blocks: any[] }) {
   return (
     <>
       {blocks.map((block) => {
@@ -20,7 +19,7 @@ export default function PageBuilder({ blocks }) {
               />
             );
           case "blogList":
-            return <BlogList key={block._key} blogList={block} />;
+            return <BlogList key={block._key} />;
           default:
             return null;
         }

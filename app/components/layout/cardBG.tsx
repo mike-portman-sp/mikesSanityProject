@@ -47,7 +47,7 @@ rel={card.button?.link?.openInNewTab ? "noopener noreferrer" : undefined}
                 {card.pills?.map((tag, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 rounded-full bg-primary/20 backdrop-blur-sm text-xs font-medium text-primary-foreground"
+                    className="px-3 py-1 rounded-full bg-primary/40 backdrop-blur-md text-sm text-foreground border border-primary/30"
                   >
                     {tag}
                   </span>

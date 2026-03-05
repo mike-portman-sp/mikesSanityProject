@@ -1,6 +1,6 @@
 import Button from "../fields/button";
 
-export default function Card({ card }) {
+export default function Card({ card }: { card: any }) {
   if (!card) return null;
 
   return (
@@ -14,7 +14,7 @@ export default function Card({ card }) {
           </h3>
           <p className="text-muted-foreground mb-4">{card.text}</p>
           <div className="flex flex-wrap gap-2 mb-4">
-            {card.pills?.map((tag) => (
+            {card.pills?.map((tag: any) => (
               <span
                 key={tag}
                 className="px-3 py-1 rounded-full bg-background/80 text-xs font-medium text-muted-foreground"
