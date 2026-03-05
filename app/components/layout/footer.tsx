@@ -1,5 +1,5 @@
 import { getLinkUrl, getLinkTarget, getLinkRel } from "../utils/linkHelpers";
-import { PortableText } from "@portabletext/react";
+import { PortableText } from "next-sanity";
 import MenuLinks from "../utils/menuLinks";
 
 type FooterProps = {

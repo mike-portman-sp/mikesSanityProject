@@ -1,4 +1,4 @@
-import { PortableText } from "@portabletext/react";
+import { PortableText } from "next-sanity";
 import Blobs from "../fields/blobs";
 import Button from "../fields/button";
 import "../../../styles/sass/components/hero.scss";

@@ -1,4 +1,4 @@
-import { PortableText } from "@portabletext/react";
+import { PortableText } from "next-sanity";
 import "../../../styles/sass/components/advancedText.scss";
 
 type AdvancedTextProps = {

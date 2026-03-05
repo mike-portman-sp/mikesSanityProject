@@ -1,7 +1,7 @@
 import { client } from "../../../studio/client";
 import MainMenu from "../../components/layout/mainMenu";
 import { groq } from "next-sanity";
-import { PortableText } from "@portabletext/react";
+import { PortableText } from "next-sanity";
 import { getSiteSettings } from "../../queries/getSiteSettings";
 import { generateMetadata as genMeta } from "../../queries/generateMetaData";
 import { Metadata } from "next";
