@@ -13,7 +13,7 @@ export default function PageBuilder({ blocks }: { blocks: any[] }) {
               <Row
                 key={block._key}
                 columns={block.contentBuilder}
-                columnLayout={block.columnLayout}
+                columnLayout={block.columns}
                 title={block.title}
                backgroundColor={block.backgroundColor ? `${block.backgroundColor}` : undefined}  // ← Add bg- prefix
               />

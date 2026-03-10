@@ -47,6 +47,7 @@ export default defineType({
       name: 'seo',
       type: 'seo',
       group: 'seo',
+      validation: (Rule) => Rule.required(),
     }),
   ],
 })

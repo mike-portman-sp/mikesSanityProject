@@ -17,15 +17,27 @@ export default function Form({ form }: FormProps) {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", message: "" });
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error();
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
-    <section className="w-full py-24 relative overflow-hidden">
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto text-center">
           {/* Contact Form */}
@@ -67,13 +79,28 @@ export default function Form({ form }: FormProps) {
                 required
               />
 
-              <button type="submit" className={getButtonStyles(form.buttonStyle)}>
-                {form.formCTA} 🚀
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                className={getButtonStyles(form.buttonStyle)}
+              >
+                {status === "loading" ? "Sending..." : `${form.formCTA} 🚀`}
               </button>
+
+              {status === "success" && (
+                <p className="text-sm px-4 py-3 rounded-xl bg-muted border border-accent/40 text-accent">
+                  Message sent! I&apos;ll be in touch soon.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-sm px-4 py-3 rounded-xl bg-muted border border-primary/40 text-primary">
+                  Something went wrong. Please try again.
+                </p>
+              )}
             </form>
           </div>
         </div>
       </div>
-    </section>
+
   );
 }

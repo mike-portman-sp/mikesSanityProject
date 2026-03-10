@@ -42,6 +42,7 @@ export const pageQuery = groq`
       },
       _type == "row" => {
         title,
+        columns,
         backgroundColor,
         contentBuilder[]{
           _key,

@@ -36,6 +36,7 @@ export default defineType({
               title: 'Pill Style',
               type: 'string',
               description: 'Style',
+              initialValue: 'pill-plain-text',
               options: {
                 list: [
                   {title: 'Plain Text', value: 'pill-plain-text'},

@@ -18,7 +18,6 @@ export default defineType({
       title: 'Meta Description',
       type: 'text',
       rows: 4,
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'metaImage', // Changed from 'image'

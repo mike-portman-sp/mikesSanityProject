@@ -143,6 +143,24 @@ export default defineType({
       group: 'settings',
     }),
     defineField({
+      name: 'colGap',
+      title: 'Gap Between Items',
+      type: 'string',
+      initialValue: 'gap-6',
+      fieldset: 'layout',
+      options: {
+        list: [
+          {title: 'None', value: 'gap-0'},
+          {title: 'XS', value: 'gap-2'},
+          {title: 'SM', value: 'gap-4'},
+          {title: 'MD', value: 'gap-6'},
+          {title: 'LG', value: 'gap-8'},
+          {title: 'XL', value: 'gap-12'},
+        ],
+      },
+      group: 'settings',
+    }),
+    defineField({
       name: 'customClass',
       type: 'string',
       title: 'Custom CSS Classes',

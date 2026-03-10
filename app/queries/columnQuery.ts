@@ -6,6 +6,7 @@ export const columnQuery = `
   colHorizontalAlign,
   colVerticalAlign,
   colTextAlign,
+  colGap,
   columnLayout,
   customClass,
   columnStyle,

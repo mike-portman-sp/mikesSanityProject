@@ -16,6 +16,10 @@ export default defineType({
       of: [
         {
           type: 'block',
+          lists: [
+            {title: 'Bullet', value: 'bullet'},
+            {title: 'Numbered', value: 'number'},
+          ],
           marks: {
             decorators: [
               {title: 'Text Strong', value: 'strong'},
