@@ -20,5 +20,10 @@ export default defineType({
       // fieldset: "submenu",
       of: [{type: 'menuItem'}],
     }),
+    defineField({
+      name: 'ctaButton',
+      type: 'button',
+      title: 'CTA Button',
+    }),
   ],
 })

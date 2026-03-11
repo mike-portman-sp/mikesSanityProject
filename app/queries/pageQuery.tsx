@@ -29,6 +29,9 @@ export const pageQuery = groq`
         link{
           ${linkProjection}
         }
+      },
+      ctaButton{
+        ${buttonQuery}
       }
     },
     "footer": *[_type == "footer"][0]{

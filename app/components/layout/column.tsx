@@ -30,7 +30,7 @@ export default function Column({ column }: ColumnProps) {
 
   return (
     <div
-      className={`py-8 mx-auto column flex flex-col ${column.colGap} ${shadowCard} ${customClass} ${column.colHorizontalAlign || ""} ${column.colVerticalAlign || ""} ${column.colTextAlign || ""}`}
+      className={`py-8 max-w-6xl mx-auto column flex flex-col ${column.colGap} ${shadowCard} ${customClass} ${column.colHorizontalAlign || ""} ${column.colVerticalAlign || ""} ${column.colTextAlign || ""}`}
     >
       {column.columnContent.map((block) => {
         switch (block._type) {

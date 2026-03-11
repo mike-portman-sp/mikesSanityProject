@@ -28,7 +28,7 @@ export default async function BlogList() {
                 {blog.title}
               </h2>
               <p className="text-lg text-muted-foreground">{blog.subTitle}</p>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-sm  text-muted-foreground">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="14"
@@ -46,7 +46,7 @@ export default async function BlogList() {
                   <rect width="18" height="18" x="3" y="4" rx="2"></rect>
                   <path d="M3 10h18"></path>
                 </svg>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text-muted-foreground  mb-0">
                   {" "}
                   {new Date(blog.publishedDate).toLocaleDateString()}
                 </p>
