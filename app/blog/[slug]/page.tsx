@@ -4,6 +4,7 @@ import { groq } from "next-sanity";
 import { PortableText } from "next-sanity";
 import { getSiteSettings } from "../../queries/getSiteSettings";
 import { generateMetadata as genMeta } from "../../queries/generateMetaData";
+import { linkProjection } from "../../queries/linkProjection";
 import { Metadata } from "next";
 
 /* ----------------------------------
@@ -15,7 +16,15 @@ const blogPostQuery = groq`
     subTitle,
     publishedDate,
     body{
-      content
+      content[]{
+        ...,
+        markDefs[]{
+          ...,
+          _type == "link" => {
+            ${linkProjection}
+          }
+        }
+      }
     },
     seo{
       metaTitle,
@@ -127,14 +136,37 @@ export default async function BlogSubPage({ params }: BlogSubPageProps) {
         )}
 
         {blog.publishedDate && (
-          <p className="text-sm text-gray-500 mb-10">
+          <p className="text-sm mb-10">
             {new Date(blog.publishedDate).toLocaleDateString()}
           </p>
         )}
 
-        <div className="prose max-w-none">
+        <div className="portable-text">
           {blog.body?.content ? (
-            <PortableText value={blog.body.content} />
+            <PortableText
+              value={blog.body.content}
+              components={{
+                marks: {
+                  link: ({ value, children }: any) => {
+                    const { linkType, internal, external, file } = value;
+                    let href = "#";
+                    if (linkType === "external") href = external || "#";
+                    else if (linkType === "internal") href = `/${internal?.slug?.current || ""}`;
+                    else if (linkType === "file") href = file?.asset?.url || "#";
+                    return (
+                      <a
+                        href={href}
+                        className="text-primary hover:underline transition-colors"
+                        target={linkType === "external" ? "_blank" : undefined}
+                        rel={linkType === "external" ? "noopener noreferrer" : undefined}
+                      >
+                        {children}
+                      </a>
+                    );
+                  },
+                },
+              }}
+            />
           ) : (
             <p>No content available - add content in Sanity Studio</p>
           )}
