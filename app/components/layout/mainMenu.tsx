@@ -7,6 +7,7 @@ import Button from "../fields/button";
 import type { ButtonField } from "../../types/sanity";
 
 type MainMenuProps = {
+  siteName?: string;
   mainMenu?: {
     _key: string;
     _type: string;
@@ -32,7 +33,7 @@ type MainMenuProps = {
   };
 };
 
-export default function MainMenu({ mainMenu }: MainMenuProps) {
+export default function MainMenu({ mainMenu, siteName }: MainMenuProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
 
@@ -61,7 +62,7 @@ export default function MainMenu({ mainMenu }: MainMenuProps) {
             href="/"
             className="text-2xl font-handwritten font-bold text-primary"
           >
-            Mike Portman ✨
+            {siteName || "Mike Portman ✨"}
           </a>
 
           {/* Desktop Menu */}

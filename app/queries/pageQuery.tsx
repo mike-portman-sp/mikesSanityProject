@@ -20,6 +20,7 @@ export const pageQuery = groq`
         }
       }
     },
+    "siteName": *[_type == "siteSettings"][0].siteName,
     "mainMenu": *[_type == "mainMenu"][0]{
       title,
       menuItems[]{

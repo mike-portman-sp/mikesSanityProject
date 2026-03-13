@@ -49,9 +49,9 @@ export default async function Page({
 
   return (
     <>
-      <MainMenu mainMenu={data.mainMenu} />
+      <MainMenu mainMenu={data.mainMenu} siteName={data.siteName} />
       <PageBuilder blocks={data.pageBuilder} />
-      <Footer footer={data.footer} mainMenu={data.mainMenu} />
+      <Footer footer={data.footer} mainMenu={data.mainMenu} siteName={data.siteName} />
     </>
   );
 }

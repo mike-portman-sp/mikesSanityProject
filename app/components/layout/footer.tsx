@@ -3,6 +3,7 @@ import { PortableText } from "next-sanity";
 import MenuLinks from "../utils/menuLinks";
 
 type FooterProps = {
+  siteName?: string;
   footer?: {
     title?: string;
     advancedText?: {
@@ -33,14 +34,14 @@ const customComponents = {
   }
 };
 
-export default function Footer({ footer, mainMenu }: FooterProps) {
+export default function Footer({ footer, mainMenu, siteName }: FooterProps) {
   if (!footer) return null;
 
   return (
     <footer className="py-12 bg-background border-t border-border">
       <div className="flex flex-col items-center gap-6">
         <a href="/" className="text-3xl font-handwritten font-bold text-primary">
-          Mike Portman ✨
+          {siteName || "Mike Portman ✨"}
         </a>
 
         {/* Main Menu Links in Footer */}

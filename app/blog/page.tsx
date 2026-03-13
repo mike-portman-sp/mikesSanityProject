@@ -15,10 +15,10 @@ export default async function BlogPage() {
 
   return (
     <>
-      <MainMenu mainMenu={data.mainMenu} />
+      <MainMenu mainMenu={data.mainMenu} siteName={data.siteName} />
       <PageBuilder blocks={data.pageBuilder} />
       <BlogList />
-      <Footer footer={data.footer} mainMenu={data.mainMenu} />
+      <Footer footer={data.footer} mainMenu={data.mainMenu} siteName={data.siteName} />
     </>
   );
 }

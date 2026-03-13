@@ -115,9 +115,10 @@ type BlogSubPageProps = {
 export default async function BlogSubPage({ params }: BlogSubPageProps) {
   const { slug } = await params;
 
-  const [blog, mainMenu] = await Promise.all([
+  const [blog, mainMenu, settings] = await Promise.all([
     client.fetch(blogPostQuery, { slug }),
     client.fetch(mainMenuQuery),
+    getSiteSettings(),
   ]);
 
   if (!blog) {
@@ -126,7 +127,7 @@ export default async function BlogSubPage({ params }: BlogSubPageProps) {
 
   return (
     <>
-      <MainMenu mainMenu={mainMenu} />
+      <MainMenu mainMenu={mainMenu} siteName={settings?.siteName} />
 
       <article className="max-w-6xl mx-auto container py-16">
         <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
