@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
+import { Space_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "./components/utils/smoothScroll";
 
 import { getSiteSettings } from "./queries/getSiteSettings";
 import { generateMetadata as genMeta } from "./queries/generateMetaData";
+
+const spaceMono = Space_Mono({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export async function generateMetaData() {
   const settings = await getSiteSettings();
@@ -26,10 +34,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className="antialiased"
-      >
+    <html lang="en" className={spaceMono.variable}>
+      <body className="antialiased">
         <SmoothScroll />
         {children}
       </body>

@@ -5,7 +5,7 @@
 ---------------------------------------- */
 @theme {
   /* Fonts */
-  --font-handwritten: cursive, ui-sans-serif, system-ui, sans-serif;
+  --font-handwritten: var(--font-mono), monospace;
 
   /* Core colors */
   --color-background: hsl(var(--background));
