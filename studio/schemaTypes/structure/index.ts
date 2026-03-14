@@ -37,7 +37,11 @@ export const structure: StructureResolver = (S) =>
       S.listItem()
         .title('Blogs')
         .schemaType('blogs')
-        .child(S.documentTypeList('blogs').title('Blogs')),
+        .child(
+          S.documentTypeList('blogs')
+            .title('Blogs')
+            .defaultOrdering([{field: 'publishedDate', direction: 'desc'}])
+        ),
 
       //   Divider
       //   S.divider(),

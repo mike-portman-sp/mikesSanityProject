@@ -54,9 +54,10 @@ export default defineType({
     }),
 
     defineField({
-      name: 'seo', // Field name can be different from type name
-      type: 'seo', // This references the 'seo' schema type
+      name: 'seo',
+      type: 'seo',
       group: 'seo',
+      validation: (Rule) => Rule.required(),
     }),
   ],
 })

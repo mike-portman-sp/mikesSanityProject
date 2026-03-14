@@ -2,6 +2,7 @@ import {defineType, defineField} from 'sanity'
 import {ArrowLeftIcon} from '@sanity/icons'
 import {ArrowUpIcon} from '@sanity/icons'
 import {ArrowRightIcon} from '@sanity/icons'
+import {schemaTypesWithPage} from '../utils/references'
 import { TextAlign } from '../../../app/components/utils/textAlign'
 
 export default defineType({
@@ -53,7 +54,7 @@ export default defineType({
                     name: 'internal',
                     title: 'Internal Reference',
                     type: 'reference',
-                    to: [{type: 'page'}], // Adjust to your page types
+                    to: schemaTypesWithPage.map((d) => ({type: d})),
                     hidden: ({parent}) => parent?.linkType !== 'internal',
                   },
                   {

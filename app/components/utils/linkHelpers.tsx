@@ -21,7 +21,10 @@ export const getLinkUrl = (link?: LinkField) => {
       return `https://${externalUrl}`;
       
     case "internal":
-      return link.internal?.slug?.current ? `/${link.internal.slug.current}` : "#";
+      if (!link.internal?.slug?.current) return "#";
+      return link.internal._type === "blogs"
+        ? `/blog/${link.internal.slug.current}`
+        : `/${link.internal.slug.current}`;
       
     case "file":
       return link.file?.asset?.url || "#";

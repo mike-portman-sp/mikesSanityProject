@@ -129,7 +129,7 @@ export default async function BlogSubPage({ params }: BlogSubPageProps) {
     <>
       <MainMenu mainMenu={mainMenu} siteName={settings?.siteName} />
 
-      <article className="max-w-6xl mx-auto container py-16">
+      <article className="px-6 max-w-6xl mx-auto container py-16">
         <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
 
         {blog.subTitle && (

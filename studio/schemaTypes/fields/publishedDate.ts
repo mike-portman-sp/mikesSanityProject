@@ -6,4 +6,5 @@ export default defineField({
   type: 'datetime',
   description: 'The date and time when the content was published.',
   validation: (Rule) => Rule.required(),
+  initialValue: () => new Date().toISOString(),
 })

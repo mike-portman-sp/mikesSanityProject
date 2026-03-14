@@ -3,7 +3,7 @@ export const linkProjection = `
   linkType,
   external,
   openInNewTab,
-  internal->{ slug{ current } },
+  internal->{ _type, slug{ current } },
   file{
     asset->{
       url

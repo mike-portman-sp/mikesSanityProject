@@ -1,6 +1,7 @@
 
 export const schemaTypesWithPageAndSlug = [
     "page",
+    "blogs",
 ] as const;
 
 // export const schemaTypeWithPageAndNoSlug = [
