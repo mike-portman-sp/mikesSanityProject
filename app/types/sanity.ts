@@ -4,6 +4,7 @@ export type LinkField = {
   external?: string;
   openInNewTab?: boolean;
   internal?: {
+    _type?: string;
     slug?: {
       current: string;
     };
