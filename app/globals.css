@@ -152,11 +152,11 @@
     font-family: var(--font-handwritten);
     color: hsl(var(--muted-foreground));
   }
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     h1 strong {
       font-size: 6rem;
     }
-  }
+  } */
   h1,
   h2,
   h3,

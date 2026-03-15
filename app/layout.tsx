@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Space_Mono } from "next/font/google";
+import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "./components/utils/smoothScroll";
 
 import { getSiteSettings } from "./queries/getSiteSettings";
 import { generateMetadata as genMeta } from "./queries/generateMetaData";
 
-const spaceMono = Space_Mono({
+const robotoCondensed = Roboto_Condensed({
   weight: ["400", "700"],
   subsets: ["latin"],
   variable: "--font-mono",
   display: "swap",
+  fallback: ["Arial Narrow", "Arial", "sans-serif"],
 });
 
 export async function generateMetaData() {
@@ -34,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={spaceMono.variable}>
+    <html lang="en" className={robotoCondensed.variable}>
       <body className="antialiased">
         <SmoothScroll />
         {children}
