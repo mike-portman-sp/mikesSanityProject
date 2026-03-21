@@ -30,5 +30,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules", "studio", "studio/**", "studio/**/*"]
+  "exclude": ["node_modules", "studio/node_modules", "studio/sanity.config.ts", "studio/sanity.cli.ts", "studio/eslint.config.mjs"]
 }
