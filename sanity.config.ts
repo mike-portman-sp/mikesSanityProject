@@ -1,6 +1,5 @@
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
-import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './studio/schemaTypes'
 import {structure} from './studio/schemaTypes/structure'
 
@@ -34,7 +33,7 @@ export default defineConfig({
 
   basePath: '/studio',
 
-  plugins: [structureTool({structure}), visionTool()],
+  plugins: [structureTool({structure})],
 
   schema: {
     types: schemaTypes,
